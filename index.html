@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="asset/style.css">
+    
+    
+</head>
+<body>
+    <nav>
+        <div class="logo">Wayy</div>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">&#9776;</label>
+        <div class="nav-items">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+        <div class="intro">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Wahyu Ardinata Depari</p>
+            <div class="about-text">
+                <a href="#home" class="btn-abt">Let's go</a>
+            </div>
+        </div>
+
+    <section id="home" class="home">
+        <div class="profile-photo">
+            <img src="asset/img/me.jpeg" alt="Profile Photo">
+        </div>
+        <div class="home-text">
+            <h2 onclick="handleNameClick(this)">Wahyu Ardinata</h2>
+            <h3>Web <span>Devloper</span></h3>
+            <p>Saya adalah pelajar di SMK Putra Anda Binjai.</p>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/wayy_sbr/?igsh=MXYxYW9ucnVhbHkyZA%3D%3D" target="_blank" class="ig">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=100077389750746&mibextid=ZbWKwL" target="_blank" class="fb">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://wa.me/6281267352083" target="_blank" class="wa">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+            <div class="about-text">
+                <h2>About <span class="typing">Me</span></h2>
+                <h4>Web Devloper!</h4>
+                <p> Hai.. Saya merupakan pelajar di SMK Putra Anda Binjai,<br> yang bernama Wahyu Ardinata Depari, saya berumur 17 tahun, dan saya tinggal di sumatra utara, Binjai <br>
+                    Saya memiliki pengalaman magang di KitaKaleID selama 9 Bulan dan belajar di dicoding, dalam bidang web devloper</p>
+                <a href="#skills" class="btn-abt">More About</a>
+            </div>
+
+            <div class="about-img">
+                <img src="asset/img/me.jpeg">
+            </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <h2>My Skills</h2>
+        <div class="skill-card">
+            <h3>HTML</h3>
+            <img src="asset/img/html.jpg" alt="HTML">
+            <p class="skill-description">Saya memulai dengan HTML sebagai dasar dalam membangun struktur halaman web. Saya belajar tentang elemen-elemen penting seperti heading, paragraph, table, form, dan lainnya. HTML menjadi pondasi utama dalam pengembangan web yang saya pelajari lebih lanjut dengan teknologi lain.</p>
+            <button class="btn" onclick="toggleCard(this)" id="html">Read More</button>
+        </div>
+        <div class="skill-card">
+            <h3>CSS</h3>
+            <img src="asset/img/css.png" alt="CSS">
+            <p class="skill-description">Setelah memahami struktur HTML, saya belajar CSS untuk mendesain tampilan web agar lebih menarik. Saya mempelajari berbagai properti seperti warna, layout, positioning, flexbox, dan grid. Selain itu, saya juga memahami konsep responsivitas agar tampilan web tetap nyaman di berbagai perangkat.</p>
+            <button class="btn" onclick="toggleCard(this)" id="css">Read More</button>
+        </div>
+        <div class="skill-card">
+            <h3>JavaScript</h3>
+            <img src="asset/img/js.png" alt="JavaScript">
+            <p class="skill-description">Saya mulai belajar JavaScript untuk menambahkan interaktivitas pada halaman web. Saya memahami konsep dasar seperti variabel, fungsi, event, DOM manipulation. Dengan JavaScript, saya dapat membuat elemen dinamis seperti animasi, validasi form, dan fitur interaktif lainnya.</p>
+            <button class="btn" onclick="toggleCard(this)" id="js">Read More</button>
+        </div>
+        <div class="skill-card">
+            <h3>Bootstrap</h3>
+            <img src="asset/img/bs.png" alt="Bootstrap">
+            <p class="skill-description">Untuk mempercepat pengembangan antarmuka, saya menggunakan Bootstrap sebagai framework CSS. Saya belajar menggunakan komponen seperti navbar, card, modal, dan grid system untuk membuat desain yang lebih modern dan responsif tanpa harus menulis banyak kode CSS manual.</p>
+            <button class="btn" onclick="toggleCard(this)" id="bs">Read More</button>
+        </div>
+        <div class="skill-card">
+            <h3>PHP</h3>
+            <img src="asset/img/php.png" alt="PHP">
+            <p class="skill-description">Saya mempelajari PHP untuk mengembangkan sisi backend dari aplikasi web. Saya belajar tentang sintaks dasar, penggunaan variabel, fungsi, session, dan cookie. Selain itu, saya juga memahami cara menghubungkan PHP dengan database untuk menyimpan dan mengambil data dari server.</p>
+            <button class="btn" onclick="toggleCard(this)" id="php">Read More</button>
+        </div>
+        <div class="skill-card">
+            <h3>Data Base</h3>
+            <img src="asset/img/db.jpg" alt="PHP">
+            <p class="skill-description">Saya mempelajari konsep database menggunakan MySQL. Saya memahami cara membuat tabel, relasi antar tabel, serta melakukan operasi CRUD (Create, Read, Update, Delete) dengan SQL. Saya juga belajar tentang optimasi query dan penggunaan indeks untuk meningkatkan performa database.</p>
+            <button class="btn" onclick="toggleCard(this)" id="php">Read More</button>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <h1>Photo Gallery</h1>
+        <div class="gallery-container">
+            <div class="gallery">
+                <div class="slider">
+                    <img src="asset/img_p1/Orange and Beige Modern Gradient Curved Text Logo.png" alt="Image 1">
+                    <img src="asset/img_p1/project1 (1).png" alt="Image 2">
+                    <img src="asset/img_p1/project1 (2).png" alt="Image 3">
+                    <img src="asset/img_p1/project1 (3).png" alt="Image 4">
+                    <img src="asset/img_p1/project1 (4).png" alt="Image 5">
+                </div>
+                <div class="controls">
+                    <button class="prev">&#10094;</button>
+                    <button class="next">&#10095;</button>
+                </div>
+            </div>
+            <div class="gallery">
+                <div class="slider">
+                    <img src="asset/img_p2/Orange and Beige Modern Gradient Curved Text Logo.png" alt="Image 1">
+                    <img src="asset/img_p2/webBatik (3).png" alt="Image 2">
+                    <img src="asset/img_p2/webBatik (1).png" alt="Image 3">
+                    <img src="asset/img_p2/webBatik (4).png" alt="Image 4">
+                    <img src="asset/img_p2/webBatik (2).png" alt="Image 5">
+                </div>
+                <div class="controls">
+                    <button class="prev">&#10094;</button>
+                    <button class="next">&#10095;</button>
+                </div>
+            </div>
+            <div class="gallery">
+                <div class="slider">
+                    <img src="asset/img_p3/Orange and Beige Modern Gradient Curved Text Logo.png" alt="Image 1">
+                    <img src="asset/img_p3/db (1).png" alt="Image 2">
+                    <img src="asset/img_p3/db (2).png" alt="Image 3">
+                </div>
+                <div class="controls">
+                    <button class="prev">&#10094;</button>
+                    <button class="next">&#10095;</button>
+                </div>
+            </div>
+            <div class="gallery">
+                <div class="slider">
+                    <img src="asset/img_p4/Orange and Beige Modern Gradient Curved Text Logo.png" alt="Image 1">
+                    <img src="asset/img_p4/perpus (1).png" alt="Image 2">
+                    <img src="asset/img_p4/perpus (2).png" alt="Image 3">
+                    <img src="asset/img_p4/perpus (3).png" alt="Image 4">
+                    <img src="asset/img_p4/perpus (4).png" alt="Image 5">
+                    <img src="asset/img_p4/perpus (5).png" alt="Image 6">
+                    <img src="asset/img_p4/perpus (6).png" alt="Image 7">
+                    <img src="asset/img_p4/perpus (7).png" alt="Image 8">
+                </div>
+                <div class="controls">
+                    <button class="prev">&#10094;</button>
+                    <button class="next">&#10095;</button>
+                </div>
+            </div>
+            <div class="gallery">
+                <div class="slider">
+                    <img src="asset/img_p5/Orange and Beige Modern Gradient Curved Text Logo.png" alt="Image 1">
+                    <img src="asset/img_p5/gallery (3).png" alt="Image 2">
+                    <img src="asset/img_p5/gallery (4).png" alt="Image 3">
+                    <img src="asset/img_p5/gallery (1).png" alt="Image 4">
+                    <img src="asset/img_p5/gallery (2).png" alt="Image 5">
+                    <img src="asset/img_p5/gallery (5).png" alt="Image 6">
+                </div>
+                <div class="controls">
+                    <button class="prev">&#10094;</button>
+                    <button class="next">&#10095;</button>
+                </div>
+            </div>
+            <div class="gallery">
+                <div class="slider">
+                    <img src="asset/img_p6/Orange and Beige Modern Gradient Curved Text Logo.png" alt="Image 1">
+                    <img src="asset/img_p6/kalkulator (1).png" alt="Image 2">
+                    <img src="asset/img_p6/kalkulator (2).png" alt="Image 3">
+                </div>
+                <div class="controls">
+                    <button class="prev">&#10094;</button>
+                    <button class="next">&#10095;</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    
+    <div class="fullscreen" id="fullscreen">
+        <img id="fullscreen-img" src="">
+        <button class="close-btn" id="close-btn">&times;</button>
+    </div>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact</h2>
+
+            <div class="contact-layout">
+                <!-- Left Section: Contact Info & Social Media -->
+                <div class="left-section">
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <p>Email: <a href="wahyuardinata.rpl22@gmail.com">wahyuardinata.rpl22@gmail.com</a></p>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <p>No WA: <a href="tel:+6281267352083">+62 812 6735 2083</a></p>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Alamat: Binjai, Indonesia</p>
+                        </div>
+                    </div>
+
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/wayy_sbr/?igsh=MXYxYW9ucnVhbHkyZA%3D%3D" target="_blank" class="ig">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=100077389750746&mibextid=ZbWKwL" target="_blank" class="fb">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a href="https://wa.me/6281267352083" target="_blank" class="wa">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Section: Contact Form -->
+                <div class="right-section">
+                    <form id="contact-form" class="contact-form">
+                        <input name="user_name" type="text" id="name" placeholder="Full name" required>
+                        <input name="user_email" type="email" id="email" placeholder="Email id" required>
+                        <textarea name="user_text" id="message" placeholder="Message" rows="5" required></textarea>
+                        <button class="button231" type="submit">Send Message</button>
+                        <p id="contact-message"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Wahyu Ardinata Depari. All rights reserved.</p>
+        <a href="#home" class="icon"><i class="fa-solid fa-arrow-up"></i></a>
+    </footer>
+
+    
+    <script src="asset/script.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</body>
+</html>
