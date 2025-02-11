@@ -99,6 +99,7 @@ const sendEmail = (e) => {
             // Tampilkan pesan sukses
             contactMessage.textContent = 'Message sent successfully ✅';
             contactMessage.style.color = 'green';
+            // contactMessage.style.font-weight = 'bold';
 
             // Hapus pesan setelah 5 detik
             setTimeout(() => {
@@ -116,4 +117,19 @@ const sendEmail = (e) => {
 };
 
 // Event listener untuk submit form
-contactForm.addEventListener('submit', sendEmail);
+    contactForm.addEventListener('submit', sendEmail);
+
+// scrollUp
+    const scrollUp = document.getElementById("scrollUp");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                scrollUp.classList.add("show");
+                scrollUp.classList.remove("hide");
+            } else {
+                scrollUp.classList.add("hide");
+                setTimeout(() => scrollUp.classList.remove("show"), 300);
+            }
+        });
+        scrollUp.addEventListener("click", () => {
+            window.scrollTo({ top: 600, behavior: "smooth" });
+    });
