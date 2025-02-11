@@ -71,12 +71,23 @@ nav {
     padding: 10px 30px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
 }
-
-.logo {
-    font-size: 1.5rem;
+.logo{
+    display: inline-block;
+    text-align: center;
+    padding: 8px 15px;
+    font-size: 1.3rem;
     font-weight: bold;
-    color: #fff;
-    text-shadow: 0 0 10px #bababa, 0 0 20px #3b3a3a, 0 0 30px #6b6969;
+    text-decoration: none;
+    background: linear-gradient(135deg, #e7e5e5, #4b4a4a);
+    color: rgb(45, 45, 45);
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo:hover {
+    background: linear-gradient(135deg, #474747, #e7e5e5);
+    box-shadow: 0 0 10px #ffffff, 0 0 20px #aeaeae, 0 0 30px #bfbebe;
 }
 
 .nav-toggle {
@@ -801,4 +812,33 @@ h1:hover{
 .footer .icon:hover{
     transform: scale(1.05);
     box-shadow: 0 0 10px #ffffff, 0 0 20px #aeaeae, 0 0 30px #bfbebe;
+}
+
+/* scrollUp */
+#scrollUp {
+    position: fixed;
+    bottom: -50px; /* Mulai dari bawah */
+    right: 20px;
+    background: #363636;
+    color: white;
+    border: none;
+    padding: 7px 10px;
+    border-radius: 10%;
+    cursor: pointer;
+    opacity: 0;
+    transition: bottom 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+#scrollUp i{
+    font-size: 1.3rem;
+}
+#scrollUp.show {
+    bottom: 20px;
+    opacity: 1;
+}
+#scrollUp.hide {
+    bottom: -50px;
+    opacity: 0;
+}
+#scrollUp:hover{
+    bottom: 25px;
 }
