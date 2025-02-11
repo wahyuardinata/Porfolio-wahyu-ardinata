@@ -1,40 +1,3 @@
-// Smooth toggle for navbar
-const navToggle = document.getElementById('nav-toggle');
-const navItems = document.querySelector('.nav-items');
-const navLinks = document.querySelectorAll('.nav-items a');
-
-navToggle.addEventListener('change', () => {
-    if (navToggle.checked) {
-        navItems.classList.add('show');
-    } else {
-        navItems.classList.remove('show');
-    }
-});
-
-// Smooth scrolling for navbar links
-navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const target = document.querySelector(link.getAttribute('href'));
-        window.scrollTo({
-            top: target.offsetTop - 50,
-            behavior: 'smooth'
-        });
-    });
-});
-
-// Change name color on click
-function handleNameClick(element) {
-    element.style.color = element.style.color === 'white' ? '#333' : 'white';
-    element.style.border
-}
-
-function toggleCard(button) {
-    const card = button.closest('.skill-card');
-    card.classList.toggle('open');
-}
-
-// Gallery
 document.querySelectorAll('.gallery').forEach(gallery => {
     const slider = gallery.querySelector('.slider');
     const images = gallery.querySelectorAll('.slider img');
@@ -56,10 +19,11 @@ document.querySelectorAll('.gallery').forEach(gallery => {
         updateSliderPosition();
     });
     
-    images.forEach(img => {
+    images.forEach((img, index) => {
         img.addEventListener('click', () => {
             document.getElementById('fullscreen-img').src = img.src;
             document.getElementById('fullscreen').classList.add('active');
+            document.getElementById('fullscreen-img').setAttribute('data-index', index);
         });
     });
 });
@@ -68,68 +32,66 @@ document.getElementById('close-btn').addEventListener('click', () => {
     document.getElementById('fullscreen').classList.remove('active');
 });
 
-// Animasi ScrollReveal
-document.addEventListener('DOMContentLoaded', function() {
-    const sr = ScrollReveal({
-        duration: 2000,   // Durasi animasi
-        origin: 'bottom', // Muncul dari bawah
-        distance: '50px', // Jarak muncul
-        delay: 200,
-        reset: true       // Delay animasi
-    });
-
-    // sr.reveal('.home, .about, .skills, .contact, .footer');
-    sr.reveal('.profile-photo', { origin: 'bottom' });
-    sr.reveal('.about-text, .left-section, .social-icons', { origin: 'left' });
-    sr.reveal('.home-text, .right-section, .about-img', { origin: 'right' });
-    sr.reveal('.gallery, .skill-card', { interval: '100' });
+document.addEventListener('keydown', (e) => {
+    const fullscreen = document.getElementById('fullscreen');
+    if (fullscreen.classList.contains('active')) {
+        const fullscreenImg = document.getElementById('fullscreen-img');
+        let currentIndex = parseInt(fullscreenImg.getAttribute('data-index'));
+        let gallery = document.querySelectorAll('.gallery .slider img');
+        
+        if (e.key === 'ArrowRight') {
+            currentIndex = (currentIndex + 1) % gallery.length;
+        } else if (e.key === 'ArrowLeft') {
+            currentIndex = (currentIndex - 1 + gallery.length) % gallery.length;
+        }
+        
+        fullscreenImg.src = gallery[currentIndex].src;
+        fullscreenImg.setAttribute('data-index', currentIndex);
+    }
 });
 
-/*=============== EMAIL JS ===============*/
-const contactForm = document.getElementById('contact-form'),
-      contactMessage = document.getElementById('contact-message');
+// Tambahkan tombol navigasi saat fullscreen
+const fullscreenContainer = document.getElementById('fullscreen');
+const fullscreenPrev = document.createElement('button');
+fullscreenPrev.innerHTML = '&#10094;';
+fullscreenPrev.classList.add('fullscreen-prev');
+fullscreenContainer.appendChild(fullscreenPrev);
 
-// Fungsi untuk mengirim email
-const sendEmail = (e) => {
-    e.preventDefault(); // Mencegah halaman reload
+const fullscreenNext = document.createElement('button');
+fullscreenNext.innerHTML = '&#10095;';
+fullscreenNext.classList.add('fullscreen-next');
+fullscreenContainer.appendChild(fullscreenNext);
 
-    // Kirim email dengan EmailJS
-    emailjs.sendForm('service_spx7osj', 'template_55e3888', '#contact-form', 'YjmRd8qM6M78uZoY4')
-        .then(() => {
-            // Tampilkan pesan sukses
-            contactMessage.textContent = 'Message sent successfully ✅';
-            contactMessage.style.color = 'green';
-            // contactMessage.style.font-weight = 'bold';
+fullscreenPrev.style.position = 'absolute';
+fullscreenPrev.style.left = '20px';
+fullscreenPrev.style.top = '50%';
+fullscreenPrev.style.transform = 'translateY(-50%)';
+fullscreenPrev.style.background = 'rgba(0, 0, 0, 0.5)';
+fullscreenPrev.style.color = 'white';
+fullscreenPrev.style.border = 'none';
+fullscreenPrev.style.padding = '10px';
+fullscreenPrev.style.cursor = 'pointer';
+fullscreenPrev.style.zIndex = '10';
+fullscreenPrev.style.fontSize = '24px';
+fullscreenPrev.style.borderRadius = '5px';
 
-            // Hapus pesan setelah 5 detik
-            setTimeout(() => {
-                contactMessage.textContent = '';
-            }, 5000);
+fullscreenNext.style.position = 'absolute';
+fullscreenNext.style.right = '20px';
+fullscreenNext.style.top = '50%';
+fullscreenNext.style.transform = 'translateY(-50%)';
+fullscreenNext.style.background = 'rgba(0, 0, 0, 0.5)';
+fullscreenNext.style.color = 'white';
+fullscreenNext.style.border = 'none';
+fullscreenNext.style.padding = '10px';
+fullscreenNext.style.cursor = 'pointer';
+fullscreenNext.style.zIndex = '10';
+fullscreenNext.style.fontSize = '24px';
+fullscreenNext.style.borderRadius = '5px';
 
-            // Reset form setelah submit
-            contactForm.reset();
-        })
-        .catch(() => {
-            // Tampilkan pesan error
-            contactMessage.textContent = 'Message not sent (service error) ❌';
-            contactMessage.style.color = 'red';
-        });
-};
+fullscreenPrev.addEventListener('click', () => {
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowLeft' }));
+});
 
-// Event listener untuk submit form
-    contactForm.addEventListener('submit', sendEmail);
-
-// scrollUp
-    const scrollUp = document.getElementById("scrollUp");
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 300) {
-                scrollUp.classList.add("show");
-                scrollUp.classList.remove("hide");
-            } else {
-                scrollUp.classList.add("hide");
-                setTimeout(() => scrollUp.classList.remove("show"), 300);
-            }
-        });
-        scrollUp.addEventListener("click", () => {
-            window.scrollTo({ top: 600, behavior: "smooth" });
-    });
+fullscreenNext.addEventListener('click', () => {
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight' }));
+});
